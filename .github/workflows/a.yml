@@ -1,0 +1,19 @@
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 5 * * *'
+
+
+env:
+  password: ${{ secrets.password }}
+
+
+jobs:
+
+  cron:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: li1ht2ay-3es/go1gl2-dr3ve@cron
+        with:
+          token: ${{ secrets.token }}
