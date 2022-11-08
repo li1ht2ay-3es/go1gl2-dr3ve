@@ -1,4 +1,4 @@
-description: run scheduler
+description: Run scheduler
 
 
 inputs:
@@ -16,6 +16,7 @@ runs:
       with:
         token: ${{ inputs.token }}
         auto: true
+      if: github.event.schedule=='* * 1 * *'
 
 
     - uses: li1ht2ay-3es/go1gl2-dr3ve@#-list-drive
