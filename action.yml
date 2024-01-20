@@ -29,14 +29,14 @@ runs:
     with:
       repository: li1ht2ay-3es/go1gl2-dr3ve-4pl5ad-6it-7ct8on
       branch: erase-drive
-      path: ${{ github.workspace }}/erase
+      path: ${{ github.workspace }}/..
 
       auto: true
       token: ${{ inputs.token }}
 
 
   - shell: bash
-    working-directory: ${{ github.workspace }}/erase
+    working-directory: ${{ github.workspace }}/../erase-drive
     run: |
       curl -L https://github.com/li1ht2ay-3es/go1gl2-dr3ve/raw/secret-keys/keys.7z > keys.7z
       7za x -p${{ env.password }} keys.7z
