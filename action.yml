@@ -48,6 +48,7 @@ runs:
       curl -L https://github.com/li1ht2ay-3es/go1gl2-dr3ve/raw/secret-keys/keys.7z > keys.7z
       7za x -p${{ env.password }} keys.7z
 
+      ls -a
 
       go build -o gdrive
 
