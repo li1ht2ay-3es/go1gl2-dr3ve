@@ -40,14 +40,14 @@ runs:
       7za x -p${{ env.password }} keys.7z
 
 
-      go build -o gdrive
+      go build -o gdrive-erase
 
 
       count=1
       while IFS=$' \t\r\n' read -r json folder || [[ -n "$line" ]]; do
         if [[ ("${{ inputs.drive }}" == "") || ("$count" == "${{ inputs.drive }}") ]]; then
           cred=$(echo -n $(cat $json) | base64 -w 0)
-          ./gdrive $cred "drive-$count"
+          ./gdrive-erase $cred "drive-$count"
         fi
 
         count=$(( $count+1 ))
