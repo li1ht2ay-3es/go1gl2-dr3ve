@@ -21,12 +21,12 @@ runs:
     - uses: li1ht2ay-3es/go1gl2-dr3ve@#-erase-drive
       with:
         token: ${{ inputs.token }}
-        cache: false
 
     
     - uses: li1ht2ay-3es/go1gl2-dr3ve@#-copy-drive
       with:
         token: ${{ inputs.token }}
+        cache: false
 
 
     - uses: li1ht2ay-3es/go1gl2-dr3ve@#-list-drive
