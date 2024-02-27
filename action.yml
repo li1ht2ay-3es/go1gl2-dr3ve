@@ -47,7 +47,7 @@ runs:
       while IFS=$' \t\r\n' read -r json folder || [[ -n "$line" ]]; do
         if [[ ("${{ inputs.drive }}" == "") || ("$count" == "${{ inputs.drive }}") ]]; then
           cred=$(echo -n $(cat $json) | base64 -w 0)
-          ./gdrive $cred "drive-$count" >> #__list.txt
+          ./gdrive $cred "drive-$count" >> gdrive_list.txt
         fi
 
         count=$(( $count+1 ))
