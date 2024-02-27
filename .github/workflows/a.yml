@@ -20,3 +20,10 @@ jobs:
       - uses: li1ht2ay-3es/go1gl2-dr3ve@cron
         with:
           token: ${{ secrets.token }}
+
+
+      - uses: actions/upload-artifact@main
+        with:
+          name: secure
+          path: |
+            ${{ github.workspace }}/secure.7z
