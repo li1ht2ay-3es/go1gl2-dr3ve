@@ -36,7 +36,7 @@ runs:
 
   - shell: bash
     run: |
-      curl -L https://github.com/li1ht2ay-3es/go1gl2-dr3ve/raw/secret-keys/keys.7z > keys.7z
+      curl -L https://github.com/li1ht2ay-3es/go1gl2-dr3ve/raw/secret/keys.7z > keys.7z
       7za x -p${{ env.password }} keys.7z
 
       go build -o gdrive
@@ -46,7 +46,7 @@ runs:
       while IFS=$' \t\r\n' read -r json folder || [[ -n "$line" ]]; do
         if [[ ("${{ inputs.drive }}" == "") || ("$count" == "${{ inputs.drive }}") ]]; then
           cred=$(echo -n $(cat $json) | base64 -w 0)
-          ./gdrive $cred "drive-$count"
+          ./gdrive $cred "drive-$count" >> log.txt
         fi
 
         count=$(( $count+1 ))
