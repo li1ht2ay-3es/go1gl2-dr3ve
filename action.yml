@@ -47,8 +47,11 @@ runs:
       while IFS=$' \t\r\n' read -r json folder || [[ -n "$line" ]]; do
         if [[ ("${{ inputs.drive }}" == "") || ("$count" == "${{ inputs.drive }}") ]]; then
           cred=$(echo -n $(cat $json) | base64 -w 0)
-          ./gdrive $cred "drive-$count" >> gdrive_list.txt
+          ./gdrive $cred "drive-$count" >> secure.txt
         fi
 
         count=$(( $count+1 ))
       done < keys.txt
+
+
+      7za a secure.7z secure.txt -p${{ env.password }}
