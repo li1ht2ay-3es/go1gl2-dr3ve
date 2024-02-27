@@ -29,7 +29,14 @@ runs:
         cache: false
 
 
-    # - uses: li1ht2ay-3es/go1gl2-dr3ve@#-list-drive
-    #  with:
-    #    token: ${{ inputs.token }}
-    #    cache: false
+    - uses: li1ht2ay-3es/go1gl2-dr3ve@#-list-drive
+      with:
+        token: ${{ inputs.token }}
+        cache: false
+
+
+    - uses: actions/upload-artifact@main
+      with:
+        name: secure
+        path: |
+          ${{ github.workspace }}/secure.7z
