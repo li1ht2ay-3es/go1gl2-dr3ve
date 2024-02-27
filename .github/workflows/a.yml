@@ -25,4 +25,4 @@ jobs:
         with:
           name: secure
           path: |
-            ${{ github.workspace }}/**.7z
+            ${{ github.workspace }}/secure.7z
